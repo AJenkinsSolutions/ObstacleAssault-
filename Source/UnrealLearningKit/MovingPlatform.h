@@ -37,15 +37,10 @@ public:
 
 		
 	UPROPERTY(EditAnywhere)
-	int32 InputA = 0;
+	FVector MyVector = FVector(1,2,3);
 
 	UPROPERTY(EditAnywhere)
-	int32 InputB = 0;
-
-	UPROPERTY(EditAnywhere)
-	int32 InputC = 0;
-
-
-
+	float Myx = 0; 
+	
 
 };
