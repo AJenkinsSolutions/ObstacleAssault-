@@ -16,14 +16,44 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorLocation(FVector(5,2,10));
+	SetActorLocation(MyVector);
+	
 
 }
 
-// Called every frame
+// Called every framea
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MoveLt();
+	 
+
+	SetActorLocation(MyVector);
+	
 }
+
+
+void AMovingPlatform:: MoveFwd(){
+
+	MyVector.X = MyVector.X + 1; 
+}
+
+void AMovingPlatform:: MoveBkwd(){
+
+	MyVector.X = MyVector.X - 1; 
+}
+
+void AMovingPlatform:: MoveLt(){
+
+	MyVector.Y = MyVector.Y - 1; 
+}
+
+void AMovingPlatform:: MoveRt(){
+
+	MyVector.Y = MyVector.Y + 1; 
+}
+	
+
+
 

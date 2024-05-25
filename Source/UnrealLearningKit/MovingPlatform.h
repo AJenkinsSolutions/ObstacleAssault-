@@ -22,6 +22,12 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	//Movement Methods
+	void MoveFwd();
+	void MoveBkwd();
+	void MoveLt();
+	void MoveRt();
 
 	UPROPERTY(EditAnywhere)
 	int32 MyInt = 99;
@@ -37,10 +43,11 @@ public:
 
 		
 	UPROPERTY(EditAnywhere)
-	FVector MyVector = FVector(4370.0,12140.0,917.0);
+	FVector MyVector = FVector(4370,-12140,916);
 
 	UPROPERTY(EditAnywhere)
 	float Myx = 0; 
 	
 
 };
+
