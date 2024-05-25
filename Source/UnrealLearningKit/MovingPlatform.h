@@ -29,25 +29,13 @@ public:
 	void MoveLt();
 	void MoveRt();
 
-	UPROPERTY(EditAnywhere)
-	int32 MyInt = 99;
-
-	UPROPERTY(EditAnywhere)
-	int32 MyInt2 = 99;
-
-	UPROPERTY(EditAnywhere)
-	float MyFloat = 0.5; 
-
-	UPROPERTY(EditAnywhere)
-	bool MyBool = true;
-
-		
-	UPROPERTY(EditAnywhere)
-	FVector MyVector = FVector(4370,-12140,916);
-
-	UPROPERTY(EditAnywhere)
-	float Myx = 0; 
 	
+	UPROPERTY(EditAnywhere)
+	FVector InitLocation= FVector(4370,-12140,916);
+
+	
+	UPROPERTY(EditAnywhere , Category= "Moving Platform")
+	FVector PlatformVelocity = FVector(FVector(100, 0 , 0));
 
 };
 

@@ -16,7 +16,7 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetActorLocation(MyVector);
+	SetActorLocation(InitLocation);
 	
 
 }
@@ -26,33 +26,36 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	MoveLt();
-	 
 
-	SetActorLocation(MyVector);
+	FVector CurrentLocation = GetActorLocation();
+
+	CurrentLocation =  CurrentLocation + PlatformVelocity * DeltaTime; 
+
+	SetActorLocation(CurrentLocation);
+
 	
 }
 
 
-void AMovingPlatform:: MoveFwd(){
+// void AMovingPlatform:: MoveFwd(){
 
-	MyVector.X = MyVector.X + 1; 
-}
+// 	MyVector.X = MyVector.X + 1; 
+// }
 
-void AMovingPlatform:: MoveBkwd(){
+// void AMovingPlatform:: MoveBkwd(){
 
-	MyVector.X = MyVector.X - 1; 
-}
+// 	MyVector.X = MyVector.X - 1; 
+// }
 
-void AMovingPlatform:: MoveLt(){
+// void AMovingPlatform:: MoveLt(){
 
-	MyVector.Y = MyVector.Y - 1; 
-}
+// 	MyVector.Y = MyVector.Y - 1; 
+// }
 
-void AMovingPlatform:: MoveRt(){
+// void AMovingPlatform:: MoveRt(){
 
-	MyVector.Y = MyVector.Y + 1; 
-}
+// 	MyVector.Y = MyVector.Y + 1; 
+// }
 	
 
 
