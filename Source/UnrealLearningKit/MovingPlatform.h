@@ -37,7 +37,7 @@ public:
 
 		
 	UPROPERTY(EditAnywhere)
-	FVector MyVector = FVector(1,2,3);
+	FVector MyVector = FVector(4370.0,12140.0,917.0);
 
 	UPROPERTY(EditAnywhere)
 	float Myx = 0; 

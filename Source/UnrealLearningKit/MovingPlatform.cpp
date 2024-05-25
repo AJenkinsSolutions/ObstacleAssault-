@@ -16,13 +16,8 @@ void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
 
-	MyInt = 9;
+	SetActorLocation(FVector(5,2,10));
 
-	Myx = MyVector.X; 
-
-	
-
-	
 }
 
 // Called every frame
