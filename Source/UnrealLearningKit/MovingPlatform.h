@@ -23,17 +23,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	
-	//Movement Methods
-	void MoveFwd();
-	void MoveBkwd();
-	void MoveLt();
-	void MoveRt();
+	UPROPERTY(VisibleAnywhere)
+	FVector StartLocation;
 
-	
-	UPROPERTY(EditAnywhere)
-	FVector InitLocation= FVector(4370,-12140,916);
+	UPROPERTY(VisibleAnywhere)
+	float dist; 
 
-	
 	UPROPERTY(EditAnywhere , Category= "Moving Platform")
 	FVector PlatformVelocity = FVector(FVector(100, 0 , 0));
 
