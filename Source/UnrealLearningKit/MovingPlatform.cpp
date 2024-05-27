@@ -37,12 +37,23 @@ void AMovingPlatform::Tick(float DeltaTime)
 	
 	//Send platform back
 		//Check how far weve moved
-		// Init location - current location - the delta is the distance
-	FVector diff = CurrentLocation - StartLocation; 
+	
+	//distance from start
+	float DistanceMoved = FVector::Dist(CurrentLocation, StartLocation);
 
-	 dist = FVector::Dist(CurrentLocation, StartLocation);
+	// Reverse direction
+	if(DistanceMoved > MoveDistance)
+	{
+		//Update If Statement
+		//Set to current location
+		StartLocation = CurrentLocation;
 		
-		// Reverse direction
+		//Reverse diection
+		PlatformVelocity = PlatformVelocity * -1; 
+	}
+		
+
+	
 	
 
 }
