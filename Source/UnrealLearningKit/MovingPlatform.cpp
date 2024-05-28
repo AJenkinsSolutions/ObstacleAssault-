@@ -19,7 +19,7 @@ void AMovingPlatform::BeginPlay()
 	StartLocation = GetActorLocation();
 
 	UE_LOG(LogTemp, Display, TEXT("Configured move distancw %f"), MoveDistance);
-
+	
 
 	
 
@@ -29,6 +29,8 @@ void AMovingPlatform::BeginPlay()
 void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	float OverShoot;
 
 	//Get current location
 	FVector CurrentLocation = GetActorLocation();
@@ -50,6 +52,11 @@ void AMovingPlatform::Tick(float DeltaTime)
 	{
 				
 		//Reverse diection
+
+		OverShoot = DistanceMoved - MoveDistance;
+
+
+		UE_LOG(LogTemp, Display, TEXT("Overshoot %f"), OverShoot);
 
 		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
 
