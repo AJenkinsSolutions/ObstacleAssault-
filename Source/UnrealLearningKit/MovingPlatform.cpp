@@ -17,6 +17,10 @@ void AMovingPlatform::BeginPlay()
 	Super::BeginPlay();
 
 	StartLocation = GetActorLocation();
+
+	UE_LOG(LogTemp, Display, TEXT("Configured move distancw %f"), MoveDistance);
+
+
 	
 
 }
@@ -51,7 +55,6 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 		StartLocation = StartLocation + MoveDirection * MoveDistance; 
 		SetActorLocation(StartLocation);
-
 
 		PlatformVelocity = PlatformVelocity * -1; 
 
