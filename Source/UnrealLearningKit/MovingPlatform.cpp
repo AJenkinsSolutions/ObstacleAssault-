@@ -54,7 +54,7 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 	}
 	else
 	{
-			// Move Platform Forward
+		// Move Platform Forward
 		FVector CurrentLocation =  GetActorLocation();
 		CurrentLocation =  CurrentLocation + (PlatformVelocity * DeltaTime); 
 		SetActorLocation(CurrentLocation);
@@ -71,7 +71,7 @@ void AMovingPlatform::RotatePlatform(float DeltaTime)
 	//Impl...
 }
 
-bool AMovingPlatform::ShouldPlatformReturn()
+bool AMovingPlatform::ShouldPlatformReturn() const
 {	
 	
 	float DistanceMoved = GetDistanceMoved();
@@ -79,7 +79,7 @@ bool AMovingPlatform::ShouldPlatformReturn()
 	return DistanceMoved > MoveDistance;
 }
 
-float AMovingPlatform::GetDistanceMoved()
+float AMovingPlatform::GetDistanceMoved() const
 {
 	//Distanvr Moved
 	return FVector::Dist(StartLocation, GetActorLocation());

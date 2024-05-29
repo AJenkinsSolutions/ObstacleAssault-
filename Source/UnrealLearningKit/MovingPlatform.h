@@ -37,15 +37,15 @@ private:
 	FVector PlatformVelocity = FVector(FVector(100, 0 , 0));
 
 	//Declaring a function in our header file
-	
+
 	//Movement Functions
 	void MovePlatform(float DeltaTime);
 	 
 	void RotatePlatform(float DeltaTime);
 
 	//Helper Methods
-	bool ShouldPlatformReturn();
+	bool ShouldPlatformReturn() const;
 
-	float GetDistanceMoved();
+	float GetDistanceMoved() const;
 };
 
