@@ -25,6 +25,15 @@ void AMovingPlatform::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	MovePlatform(DeltaTime);
+
+	
+
+}
+// Specify which class 
+//:: == scope resolution operator
+void AMovingPlatform::MovePlatform(float DeltaTime)
+{
 	float OverShoot;
 	FString Name = GetName();
 
@@ -37,8 +46,8 @@ void AMovingPlatform::Tick(float DeltaTime)
 	//Set location 
 	SetActorLocation(CurrentLocation);
 	
-	//Send platform back
-		//Check how far weve moved
+	// -- Send platform back -- 
+		
 	
 	//distance from start
 	float DistanceMoved = FVector::Dist(CurrentLocation, StartLocation);
@@ -48,9 +57,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 	{
 				
 		//Reverse diection
-
 		OverShoot = DistanceMoved - MoveDistance;
-
 
 		UE_LOG(LogTemp, Display, TEXT("Overshoot: %f"), OverShoot);
 		UE_LOG(LogTemp, Display, TEXT("Object Name: %s"), *Name);
@@ -63,13 +70,5 @@ void AMovingPlatform::Tick(float DeltaTime)
 		PlatformVelocity = PlatformVelocity * -1; 
 
 	}
-		
-
-	
-	
 
 }
-
-
-
-

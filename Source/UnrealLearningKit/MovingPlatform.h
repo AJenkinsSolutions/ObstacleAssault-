@@ -22,18 +22,24 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+
+//We dont want other classes to be to uses these functions
+private:
 	
 	UPROPERTY(VisibleAnywhere)
 	FVector StartLocation;
 
-	
-
 	UPROPERTY(EditAnywhere, Category= "Moving Platform")
 	float MoveDistance = 100.0;
 
-
 	UPROPERTY(EditAnywhere , Category= "Moving Platform")
 	FVector PlatformVelocity = FVector(FVector(100, 0 , 0));
+
+	//Declaring a function in our header file
+	void MovePlatform(float DeltaTime);
+	 
+	// void RotatePlatform(float DeltaTime);
 
 };
 
