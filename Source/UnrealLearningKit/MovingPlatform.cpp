@@ -32,7 +32,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 	MovePlatform(DeltaTime);
 
-	
+	RotatePlatform(DeltaTime);
 
 }
 // Specify which class 
@@ -66,9 +66,7 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	UE_LOG(LogTemp, Display, TEXT("Rotating....%s "), *GetName());
-	
-	//Impl...
+	AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
 bool AMovingPlatform::ShouldPlatformReturn() const

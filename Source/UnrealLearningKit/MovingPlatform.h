@@ -30,11 +30,14 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	FVector StartLocation;
 
-	UPROPERTY(EditAnywhere, Category= "Moving Platform")
+	UPROPERTY(EditAnywhere, Category= "Moving")
 	float MoveDistance = 100.0;
 
-	UPROPERTY(EditAnywhere , Category= "Moving Platform")
+	UPROPERTY(EditAnywhere , Category= "Moving")
 	FVector PlatformVelocity = FVector(FVector(100, 0 , 0));
+
+	UPROPERTY(EditAnywhere, Category= "Roation")
+	FRotator RotationVelocity;
 
 	//Declaring a function in our header file
 
