@@ -18,6 +18,11 @@ void AMovingPlatform::BeginPlay()
 
 	StartLocation = GetActorLocation();	
 
+	//Logging
+	//Fstring
+	//Inteliense Short cut - 'ulog'
+	UE_LOG(LogTemp, Display, TEXT("Text Message log Here"));
+
 }
 
 // Called every framea
@@ -34,41 +39,48 @@ void AMovingPlatform::Tick(float DeltaTime)
 //:: == scope resolution operator
 void AMovingPlatform::MovePlatform(float DeltaTime)
 {
-	float OverShoot;
-	FString Name = GetName();
 
-	//Get current location
-	FVector CurrentLocation = GetActorLocation();
-
-	// Adding a vector to out location vector
-	CurrentLocation =  CurrentLocation + (PlatformVelocity * DeltaTime); 
-
-	//Set location 
-	SetActorLocation(CurrentLocation);
 	
-	// -- Send platform back -- 
-		
-	
-	//distance from start
-	float DistanceMoved = FVector::Dist(CurrentLocation, StartLocation);
 
 	// Reverse direction
-	if(DistanceMoved > MoveDistance)
+	if(ShouldPlatformReturn())
 	{
-				
-		//Reverse diection
-		OverShoot = DistanceMoved - MoveDistance;
-
-		UE_LOG(LogTemp, Display, TEXT("Overshoot: %f"), OverShoot);
-		UE_LOG(LogTemp, Display, TEXT("Object Name: %s"), *Name);
-
+			
 		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
-
 		StartLocation = StartLocation + MoveDirection * MoveDistance; 
 		SetActorLocation(StartLocation);
-
 		PlatformVelocity = PlatformVelocity * -1; 
 
 	}
+	else
+	{
+			// Move Platform Forward
+		FVector CurrentLocation =  GetActorLocation();
+		CurrentLocation =  CurrentLocation + (PlatformVelocity * DeltaTime); 
+		SetActorLocation(CurrentLocation);
+		
+	}
 
+}
+
+
+void AMovingPlatform::RotatePlatform(float DeltaTime)
+{
+	UE_LOG(LogTemp, Display, TEXT("Rotating....%s "), *GetName());
+	
+	//Impl...
+}
+
+bool AMovingPlatform::ShouldPlatformReturn()
+{	
+	
+	float DistanceMoved = GetDistanceMoved();
+
+	return DistanceMoved > MoveDistance;
+}
+
+float AMovingPlatform::GetDistanceMoved()
+{
+	//Distanvr Moved
+	return FVector::Dist(StartLocation, GetActorLocation());
 }
