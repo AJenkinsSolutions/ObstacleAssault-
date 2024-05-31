@@ -48,7 +48,8 @@ private:
 
 	//Helper Methods
 	bool ShouldPlatformReturn() const;
-
+ 
+ 
 	float GetDistanceMoved() const;
 };
 
